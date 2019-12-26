@@ -1,4 +1,6 @@
-FROM centos:7
+FROM alpine:3.10
+
+RUN apk update && apk add ca-certificates && rm -rf /var/cache/apk/*
 
 ENV OPERATOR=/usr/local/bin/k8s-notify \
     USER_UID=1001 \
