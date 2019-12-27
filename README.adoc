@@ -100,6 +100,15 @@ image::/docs/images/pod-created.png[]
 
 We got a message!
 
+== Building the docker image
+
+Run the following command to build the binary:
+
+```
+env GOOS=linux GOARCH=386 go build -o "build/_output/bin/k8s-notify" ./cmd/manager
+docker build . -t <tag>
+```
+
 == Contributing
 
 We welcome contributions from the community. Feel free to link:https://github.com/etsauer/k8s-notify/issues/new[open issues] and link:https://github.com/etsauer/k8s-notify/pulls/new[pull requests].
