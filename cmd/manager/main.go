@@ -7,8 +7,8 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/redhat-cop/k8s-notify/pkg/apis"
-	"github.com/redhat-cop/k8s-notify/pkg/controller"
+	"github.com/housinganywhere/k8s-notify/pkg/apis"
+	"github.com/housinganywhere/k8s-notify/pkg/controller"
 
 	"github.com/operator-framework/operator-sdk/pkg/k8sutil"
 	"github.com/operator-framework/operator-sdk/pkg/leader"

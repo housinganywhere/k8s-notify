@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"regexp"
 
-	"github.com/nsf/jsondiff"
+	"github.com/housinganywhere/jsondiff"
 	corev1 "k8s.io/api/core/v1"
 )
 
