@@ -87,7 +87,9 @@ func (r *ReconcileEvent) Reconcile(request reconcile.Request) (reconcile.Result,
 		return reconcile.Result{}, nil
 	}
 
-	reqLogger.Info(fmt.Sprintf("Notifying of subscribed event: %s", instance.Message))
+	var extMsg = fmt.Sprintf("[%s][%s][%s]: %s", instance.InvolvedObject.Namespace, instance.InvolvedObject.Kind, instance.InvolvedObject.Name, instance.Message)
+
+	reqLogger.Info(fmt.Sprintf("Notifying of subscribed event: %s", extMsg))
 
 	// Get notifier associated with subscription
 	var notifier notifyv1.Notifier
@@ -110,7 +112,7 @@ func (r *ReconcileEvent) Reconcile(request reconcile.Request) (reconcile.Result,
 	}
 
 	// Send notification
-	err = notifier.GetMessageSender().Send(instance.Message)
+	err = notifier.GetMessageSender().Send(extMsg)
 	if err != nil {
 		return reconcile.Result{}, err
 	}
