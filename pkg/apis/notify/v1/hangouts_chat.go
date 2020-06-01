@@ -5,6 +5,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+
+	corev1 "k8s.io/api/core/v1"
 )
 
 type HangoutsChatNotifier struct {
@@ -27,4 +29,8 @@ func (n *HangoutsChatNotifier) Send(message string) error {
 
 	return nil
 
+}
+
+func (n *HangoutsChatNotifier) SendRich(e corev1.Event) error {
+	return n.Send(e.Message)
 }

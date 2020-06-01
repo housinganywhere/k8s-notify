@@ -1,6 +1,7 @@
 package v1
 
 import (
+	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
@@ -52,4 +53,5 @@ func init() {
 
 type MessageSender interface {
 	Send(message string) error
+	SendRich(e corev1.Event) error
 }

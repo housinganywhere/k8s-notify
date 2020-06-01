@@ -112,7 +112,8 @@ func (r *ReconcileEvent) Reconcile(request reconcile.Request) (reconcile.Result,
 	}
 
 	// Send notification
-	err = notifier.GetMessageSender().Send(extMsg)
+	// err = notifier.GetMessageSender().Send(extMsg)
+	err = notifier.GetMessageSender().SendRich(instance)
 	if err != nil {
 		return reconcile.Result{}, err
 	}
